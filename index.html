@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
+  <style>
+    #preview {
+      border-width: 2px;
+      border-style: solid;
+      border-color: black;
+      width: 200px;
+      height: 200px;
+    }
+    body {
+      background-color: rgb(184, 184, 184);
+ 
+    
+    }
+    #buttonDiv {
+      display: flex;
+      justify-content: start;
+    }
+
+    button:hover {
+      box-shadow: 2px 2px 1px black;
+    }
+
+  </style>
+  <meta charset="utf-8"/>
+  <title>Chris and Ben's Markdown Translator</title>
+  
+</head>
+<body>
+  <!-- <div id="content"></div> -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <h1>Markdown Preview</h1>
+    <textarea id="source"></textarea>
+    <div id="preview"></div>
+    <div id='buttonDiv'>
+    <button id="render" onclick="renderFunction()">render</button>
+  </div>
+
+    <script>
+        function renderFunction(){
+              let sourceField = document.getElementById('source');
+              console.log(sourceField)
+              let inputText = sourceField.value;
+              console.log(inputText)
+              let previewField = document.getElementById('preview');
+              let markdownText = marked(inputText)
+              previewField.innerHTML = markdownText;
+              }
+      </script>
+</body>
+</html>
